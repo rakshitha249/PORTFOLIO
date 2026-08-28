@@ -142,6 +142,26 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Cache configuration
+redis_url = os.environ.get('CELERY_BROKER_URL', '')
+if redis_url:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': redis_url,
+        }
+    }
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    }
+
+# GitHub Configuration
+GITHUB_USERNAME = os.environ.get('GITHUB_USERNAME', 'rakshitha249')
+GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', '')
+
 # CORS
 CORS_ALLOW_ALL_ORIGINS = True # For development only, change in production
 CORS_ALLOW_CREDENTIALS = True

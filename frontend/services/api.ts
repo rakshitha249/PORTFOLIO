@@ -24,3 +24,20 @@ export const getExperience = () => fetchApi('/experience/').then(r => r || []);
 export const getEducation = () => fetchApi('/education/').then(r => r || []);
 export const getCertificates = () => fetchApi('/certificates/').then(r => r || []);
 export const getSocialLinks = () => fetchApi('/social-links/').then(r => r || []);
+
+export const getGithubRepositories = (params?: { language?: string, topic?: string, search?: string, sort?: string, limit?: number }) => {
+  let url = '/github/repositories/';
+  if (params) {
+    const searchParams = new URLSearchParams();
+    if (params.language) searchParams.append('language', params.language);
+    if (params.topic) searchParams.append('topic', params.topic);
+    if (params.search) searchParams.append('search', params.search);
+    if (params.sort) searchParams.append('sort', params.sort);
+    if (params.limit) searchParams.append('limit', params.limit.toString());
+    const queryString = searchParams.toString();
+    if (queryString) {
+      url += `?${queryString}`;
+    }
+  }
+  return fetchApi(url).then(r => r || []);
+};

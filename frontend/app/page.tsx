@@ -3,9 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Timeline, TimelineItem } from "@/components/Timeline";
 import { EmptyState } from "@/components/EmptyState";
-import { getProjects, getProfile, getSkills, getExperience, getEducation } from "@/services/api";
-import { ArrowRight, Terminal, BrainCircuit, Database, GraduationCap, Briefcase } from "lucide-react";
+import { getProjects, getProfile, getSkills, getExperience, getEducation, getGithubRepositories } from "@/services/api";
+import { ArrowRight, Terminal, BrainCircuit, Database, GraduationCap, Briefcase, GitBranch } from "lucide-react";
 import Link from "next/link";
+import RepositoryCard from "@/components/github/RepositoryCard";
+
+import { GithubRepository } from "@/types/github";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -13,6 +16,7 @@ export default async function Home() {
   const skills = await getSkills();
   const experience = await getExperience();
   const education = await getEducation();
+  const githubRepos = await getGithubRepositories({ limit: 3, sort: 'updated' });
 
   const profile = profileData.length > 0 ? profileData[0] : null;
 
@@ -145,6 +149,29 @@ export default async function Home() {
                     <EmptyState title="Education Unavailable" message="Academic background is currently being updated." />
                 )}
             </div>
+        </div>
+      </section>
+
+      <section className="w-full py-24 bg-[var(--background)] border-b border-[var(--border)]">
+        <div className="container mx-auto max-w-6xl px-4 md:px-8">
+            <div className="flex items-center justify-between mb-10">
+                <div className="flex items-center gap-2">
+                    <GitBranch className="w-6 h-6 text-[var(--primary)]" />
+                    <h2 className="text-3xl font-bold tracking-tight">Open Source Work</h2>
+                </div>
+                <Button variant="ghost" asChild>
+                    <Link href="/github">View GitHub <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                </Button>
+            </div>
+            {githubRepos.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {githubRepos.map((repo: GithubRepository) => (
+                        <RepositoryCard key={repo.id} repo={repo} />
+                    ))}
+                </div>
+            ) : (
+                <EmptyState title="No Repositories" message="GitHub repositories could not be loaded." />
+            )}
         </div>
       </section>
 
