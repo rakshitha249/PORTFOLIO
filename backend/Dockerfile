@@ -31,6 +31,9 @@ RUN pip install --no-cache /wheels/*
 
 COPY . .
 
+# Create a non-root user
+RUN addgroup --system app && adduser --system --group app
+
 # Create static and media directories
 RUN mkdir -p /app/staticfiles /app/media
 
