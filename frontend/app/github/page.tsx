@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { getGithubRepositories } from '@/services/api';
 import { GithubRepository } from '@/types/github';
 import RepositoryCard from '@/components/github/RepositoryCard';
+import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 
 export default function GithubPage() {
   const [repositories, setRepositories] = useState<GithubRepository[]>([]);
@@ -43,6 +44,7 @@ export default function GithubPage() {
   
   return (
     <div className="container mx-auto px-4 py-12">
+      <AnalyticsTracker eventType="github_view" />
       <h1 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
         GitHub Repositories
       </h1>

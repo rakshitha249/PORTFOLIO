@@ -1,5 +1,6 @@
 import { getProfile } from "@/services/api";
 import { EmptyState } from "@/components/EmptyState";
+import { AnalyticsCards } from "@/components/AnalyticsCards";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default async function AboutPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 md:px-8 py-16">
       <h1 className="text-4xl font-extrabold tracking-tight mb-8">About Me</h1>
+      <AnalyticsCards />
       {profile ? (
         <div className="prose dark:prose-invert max-w-none">
           <p className="text-xl text-[var(--muted-foreground)] leading-relaxed mb-8">

@@ -48,6 +48,7 @@ class GithubService:
                             'topics': repo.get('topics', []),
                             'stargazers_count': repo.get('stargazers_count', 0),
                             'forks_count': repo.get('forks_count', 0),
+                            'visibility': repo.get('visibility', 'public'),
                             'created_at': repo.get('created_at', ''),
                             'updated_at': repo.get('updated_at', ''),
                         })

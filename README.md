@@ -27,3 +27,30 @@ To start the entire stack:
 ```bash
 docker-compose up -d --build
 ```
+This will start:
+- Nginx Reverse Proxy on port 80
+- Next.js Frontend (internal)
+- Django Backend (internal)
+- PostgreSQL & Redis (internal)
+
+### Production Deployment
+The project is containerized for production out-of-the-box. Ensure your production `.env` is secure:
+1. Set `DEBUG=False`
+2. Configure `CORS_ALLOWED_ORIGINS` (e.g., `https://myportfolio.com`)
+3. Use strong passwords for PostgreSQL.
+
+### CI/CD
+A GitHub Actions workflow is included (`.github/workflows/ci.yml`) to automatically lint, build, and test the application on pushes to the `main` branch.
+
+## API Endpoints
+
+| Method | Endpoint | Purpose |
+| ------ | -------- | ------- |
+| GET | `/api/projects/` | Retrieve and search projects |
+| GET | `/api/skills/` | Retrieve skills |
+| GET | `/api/github/repositories/` | Fetch cached GitHub repositories |
+| GET | `/api/analytics/summary/` | Retrieve analytics overview |
+| POST | `/api/analytics/track/` | Record portfolio events |
+| POST | `/api/contact/` | Submit contact form |
+| GET | `/api/health/` | Production health check & DB status |
+| POST | `/api/ai/search/` | Semantic knowledge base search |
