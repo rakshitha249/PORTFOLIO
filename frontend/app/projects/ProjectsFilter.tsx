@@ -46,7 +46,7 @@ export function ProjectsFilter() {
             }}
           >
             <option value="All">All Categories</option>
-            <option value="AI">AI / ML</option>
+            <option value="AI/ML">AI / ML</option>
             <option value="Web">Web Dev</option>
             <option value="Data">Data Science</option>
           </select>

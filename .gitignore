@@ -20,3 +20,9 @@ env/
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+
+# Generated static and media assets
+staticfiles/
+media/
+backend/staticfiles/
+backend/media/
