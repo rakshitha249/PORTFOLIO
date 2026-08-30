@@ -2,6 +2,8 @@ import { getProjectBySlug, getProjects } from "@/services/api";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/EmptyState";
+
+export const dynamic = 'force-dynamic';
 import {
   Code,
   ExternalLink,
