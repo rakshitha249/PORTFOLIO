@@ -116,24 +116,148 @@
         "model": "projects.project",
         "pk": 1,
         "fields": {
-            "title": "DEEPSECURE Suspicious Human Activity Recognition",
+            "title": "DEEPSECURE – Suspicious Human Activity Recognition",
             "slug": "deepsecure-suspicious-human-activity-recognition",
-            "short_description": "DeepSecure is an AI-powered video surveillance system that uses computer vision and deep learning techniques to recognize suspicious human activities from video streams and assist in identifying potentially abnormal behavior in real time.",
-            "full_description": "DeepSecure – Suspicious Human Activity Recognition is a computer vision and deep learning project designed to automatically analyze human activities in video footage and identify potentially suspicious or abnormal behavior.\r\n\r\nThe system processes video frames and extracts visual and temporal patterns associated with human actions. A trained deep learning model is used to classify observed activities and distinguish potentially suspicious activities from normal human behavior.\r\n\r\nThe project aims to reduce the dependency on continuous manual monitoring by providing automated activity analysis and generating alerts when potentially suspicious behavior is detected. It demonstrates the application of artificial intelligence, computer vision, and deep learning to real-world security and surveillance scenarios.\r\n\r\nThe system can be further extended with real-time camera integration, automated alerts, activity tracking, event logging, and a web-based monitoring dashboard.",
-            "problem_statement": "Traditional video surveillance requires continuous human monitoring, which can be time-consuming and may result in suspicious activities being missed. An automated system is needed to analyze surveillance footage and identify potentially suspicious human activities efficiently.",
-            "solution": "DeepSecure uses computer vision and deep learning to process video data and recognize human activities. The system analyzes the visual information and classifies detected activities, helping provide an automated alert-oriented surveillance solution.",
-            "dataset_info": "",
-            "ml_models": "",
-            "results": "",
-            "challenges": "",
-            "future_improvements": "",
+            "short_description": "An AI-powered real-time surveillance system using YOLOv8 to detect suspicious and hazardous activities from video streams, including fight, panic behaviour, and fire/smoke events.",
+            "full_description": "DeepSecure is an AI-powered video surveillance system designed to automate the detection of suspicious and hazardous activities from surveillance video. The system uses the YOLOv8 object-detection model with PyTorch and Ultralytics to perform real-time inference on video streams.\n\nThe system processes live or uploaded video, detects relevant activities, identifies detected subjects using bounding boxes and confidence scores, and generates alerts when suspicious behaviour is identified. The project demonstrates detection scenarios including fight detection, panic behaviour detection, and fire and smoke detection.\n\nA Flask-based web application provides the user interface for uploading or streaming video, viewing detection results, and monitoring flagged events. The system was designed to reduce the dependency on continuous manual surveillance while improving response time and supporting real-time monitoring.\n\n### Applications\n- Public-place surveillance\n- Smart-city surveillance\n- Airport and mall monitoring\n- School surveillance\n- Military and restricted-area monitoring\n- Critical infrastructure monitoring",
+            "problem_statement": "Traditional surveillance depends heavily on continuous human monitoring, which is time-consuming and can be unreliable. There is a need for an automated system capable of detecting suspicious or abnormal activities from surveillance videos in real time. DeepSecure addresses this problem by applying deep-learning-based computer vision to automate activity detection and generate alerts for potentially hazardous events.",
+            "solution": "DeepSecure uses YOLOv8, implemented with PyTorch and Ultralytics, to analyse video frames and detect suspicious or hazardous activities. The system uses a real-time detection pipeline that accepts live camera streams or uploaded videos, performs frame-level inference, filters relevant activities, and generates alerts with bounding boxes and confidence scores. A Flask web interface allows users to upload or stream video and monitor detection results and flagged events.",
+            "dataset_info": "The project uses an activity-detection dataset prepared in YOLO-compatible format, with annotated bounding boxes and class IDs. The preprocessing pipeline includes rotation, scaling, and brightness-adjustment augmentation. The dataset was prepared for fine-tuning a pretrained YOLOv8 model on the target activity-detection task.",
+            "ml_models": "YOLOv8\n\nYOLOv8 pretrained on COCO and fine-tuned for the activity-detection task. The training pipeline uses PyTorch and Ultralytics YOLOv8. The model was selected for its real-time inference capability and was used to process surveillance video frames and identify target activities.",
+            "results": "The implemented system demonstrated real-time suspicious-activity detection, automated alert generation, and a monitoring dashboard. Demonstrated detection scenarios include fire and smoke detection, fight detection, and panic behaviour detection. The system displays detected subjects using bounding boxes and confidence scores and provides alerts when relevant activities are detected.",
+            "challenges": "The project involved challenges associated with real-time video processing, activity detection under different scenarios and lighting conditions, dataset preprocessing and annotation, and balancing detection performance with real-time inference requirements.",
+            "future_improvements": "Future improvements could include expanding the activity dataset, adding more suspicious-activity classes, improving temporal understanding of human behaviour, optimizing inference for edge devices, improving robustness under challenging lighting and crowded scenes, and integrating more advanced alert and event-management capabilities.",
             "github_url": null,
             "live_demo_url": null,
-            "project_image": "",
+            "project_image": "projects/panic_detection.webp",
             "is_published": true,
             "created_at": "2026-08-29T07:37:56.789Z",
-            "updated_at": "2026-08-29T14:33:59.891Z",
+            "updated_at": "2026-08-30T08:36:24.237Z",
             "category": "AI/ML"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 1,
+        "fields": {
+            "project": 1,
+            "name": "Python"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 2,
+        "fields": {
+            "project": 1,
+            "name": "PyTorch"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 3,
+        "fields": {
+            "project": 1,
+            "name": "YOLOv8"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 4,
+        "fields": {
+            "project": 1,
+            "name": "Ultralytics"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 5,
+        "fields": {
+            "project": 1,
+            "name": "OpenCV"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 6,
+        "fields": {
+            "project": 1,
+            "name": "Flask"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 7,
+        "fields": {
+            "project": 1,
+            "name": "HTML"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 8,
+        "fields": {
+            "project": 1,
+            "name": "CSS"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 9,
+        "fields": {
+            "project": 1,
+            "name": "JavaScript"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 10,
+        "fields": {
+            "project": 1,
+            "name": "Computer Vision"
+        }
+    },
+    {
+        "model": "projects.projecttechnology",
+        "pk": 11,
+        "fields": {
+            "project": 1,
+            "name": "Deep Learning"
+        }
+    },
+    {
+        "model": "projects.projectmetric",
+        "pk": 1,
+        "fields": {
+            "project": 1,
+            "name": "F1 Score",
+            "value": "0.71"
+        }
+    },
+    {
+        "model": "projects.projectmetric",
+        "pk": 2,
+        "fields": {
+            "project": 1,
+            "name": "Fire AP",
+            "value": "0.793"
+        }
+    },
+    {
+        "model": "projects.projectmetric",
+        "pk": 3,
+        "fields": {
+            "project": 1,
+            "name": "Smoke AP",
+            "value": "0.637"
+        }
+    },
+    {
+        "model": "projects.projectmetric",
+        "pk": 4,
+        "fields": {
+            "project": 1,
+            "name": "mAP@0.5",
+            "value": "0.715"
         }
     }
 ]
