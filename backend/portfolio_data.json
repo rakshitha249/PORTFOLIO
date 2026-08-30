@@ -1,139 +1,139 @@
 [
-{
-    "model": "portfolio.profile",
-    "pk": 1,
-    "fields": {
-        "name": "Rakshitha S S",
-        "title": "Computer Science Graduate | AI & ML Enthusiast",
-        "bio": "I am a Computer Science graduate with a strong interest in Artificial Intelligence, Machine Learning, Data Science, and Full-Stack Development. I enjoy building practical software solutions and AI-powered applications that solve real-world problems. I am continuously developing my skills in Python, Django, Machine Learning, Data Analytics, and modern web technologies, with the goal of pursuing advanced studies and a career in AI and Data Science.",
-        "email": "rakshithagowda6124@gmail.com",
-        "resume_url": null,
-        "created_at": "2026-08-29T07:19:02.281Z",
-        "updated_at": "2026-08-29T07:19:02.281Z"
+    {
+        "model": "portfolio.profile",
+        "pk": 1,
+        "fields": {
+            "name": "Rakshitha S S",
+            "title": "Computer Science Graduate | AI & ML Enthusiast",
+            "bio": "I am a Computer Science graduate with a strong interest in Artificial Intelligence, Machine Learning, Data Science, and Full-Stack Development. I enjoy building practical software solutions and AI-powered applications that solve real-world problems. I am continuously developing my skills in Python, Django, Machine Learning, Data Analytics, and modern web technologies, with the goal of pursuing advanced studies and a career in AI and Data Science.",
+            "email": "rakshithagowda6124@gmail.com",
+            "resume_url": null,
+            "created_at": "2026-08-29T07:19:02.281Z",
+            "updated_at": "2026-08-29T07:19:02.281Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 1,
+        "fields": {
+            "name": "Python",
+            "category": "Programming",
+            "proficiency": 85,
+            "created_at": "2026-08-29T07:21:52.601Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 2,
+        "fields": {
+            "name": "Django",
+            "category": "Backend Development",
+            "proficiency": 75,
+            "created_at": "2026-08-29T07:22:21.382Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 3,
+        "fields": {
+            "name": "Machine Learning",
+            "category": "AI/ML",
+            "proficiency": 70,
+            "created_at": "2026-08-29T07:22:52.076Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 4,
+        "fields": {
+            "name": "Data Analysis",
+            "category": "Data Science",
+            "proficiency": 70,
+            "created_at": "2026-08-29T07:23:43.619Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 6,
+        "fields": {
+            "name": "SQL",
+            "category": "Database",
+            "proficiency": 85,
+            "created_at": "2026-08-29T07:26:16.193Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 7,
+        "fields": {
+            "name": "React",
+            "category": "Frontend Programming",
+            "proficiency": 75,
+            "created_at": "2026-08-29T07:26:55.015Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 8,
+        "fields": {
+            "name": "JavaScript",
+            "category": "Programming",
+            "proficiency": 75,
+            "created_at": "2026-08-29T07:27:19.555Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 9,
+        "fields": {
+            "name": "HTML & CSS",
+            "category": "Frontend Programming",
+            "proficiency": 80,
+            "created_at": "2026-08-29T07:27:55.640Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 10,
+        "fields": {
+            "name": "Git & GitHub",
+            "category": "Development Tools",
+            "proficiency": 75,
+            "created_at": "2026-08-29T07:28:39.649Z"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk": 11,
+        "fields": {
+            "name": "REST API",
+            "category": "Backend Development",
+            "proficiency": 70,
+            "created_at": "2026-08-29T07:28:59.444Z"
+        }
+    },
+    {
+        "model": "projects.project",
+        "pk": 1,
+        "fields": {
+            "title": "DEEPSECURE Suspicious Human Activity Recognition",
+            "slug": "deepsecure-suspicious-human-activity-recognition",
+            "short_description": "DeepSecure is an AI-powered video surveillance system that uses computer vision and deep learning techniques to recognize suspicious human activities from video streams and assist in identifying potentially abnormal behavior in real time.",
+            "full_description": "DeepSecure â€“ Suspicious Human Activity Recognition is a computer vision and deep learning project designed to automatically analyze human activities in video footage and identify potentially suspicious or abnormal behavior.\r\n\r\nThe system processes video frames and extracts visual and temporal patterns associated with human actions. A trained deep learning model is used to classify observed activities and distinguish potentially suspicious activities from normal human behavior.\r\n\r\nThe project aims to reduce the dependency on continuous manual monitoring by providing automated activity analysis and generating alerts when potentially suspicious behavior is detected. It demonstrates the application of artificial intelligence, computer vision, and deep learning to real-world security and surveillance scenarios.\r\n\r\nThe system can be further extended with real-time camera integration, automated alerts, activity tracking, event logging, and a web-based monitoring dashboard.",
+            "problem_statement": "Traditional video surveillance requires continuous human monitoring, which can be time-consuming and may result in suspicious activities being missed. An automated system is needed to analyze surveillance footage and identify potentially suspicious human activities efficiently.",
+            "solution": "DeepSecure uses computer vision and deep learning to process video data and recognize human activities. The system analyzes the visual information and classifies detected activities, helping provide an automated alert-oriented surveillance solution.",
+            "dataset_info": "",
+            "ml_models": "",
+            "results": "",
+            "challenges": "",
+            "future_improvements": "",
+            "github_url": null,
+            "live_demo_url": null,
+            "project_image": "",
+            "is_published": true,
+            "created_at": "2026-08-29T07:37:56.789Z",
+            "updated_at": "2026-08-29T14:33:59.891Z",
+            "category": "AI/ML"
+        }
     }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 1,
-    "fields": {
-        "name": "Python",
-        "category": "Programming",
-        "proficiency": 85,
-        "created_at": "2026-08-29T07:21:52.601Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 2,
-    "fields": {
-        "name": "Django",
-        "category": "Backend Development",
-        "proficiency": 75,
-        "created_at": "2026-08-29T07:22:21.382Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 3,
-    "fields": {
-        "name": "Machine Learning",
-        "category": "AI/ML",
-        "proficiency": 70,
-        "created_at": "2026-08-29T07:22:52.076Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 4,
-    "fields": {
-        "name": "Data Analysis",
-        "category": "Data Science",
-        "proficiency": 70,
-        "created_at": "2026-08-29T07:23:43.619Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 6,
-    "fields": {
-        "name": "SQL",
-        "category": "Database",
-        "proficiency": 85,
-        "created_at": "2026-08-29T07:26:16.193Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 7,
-    "fields": {
-        "name": "React",
-        "category": "Frontend Programming",
-        "proficiency": 75,
-        "created_at": "2026-08-29T07:26:55.015Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 8,
-    "fields": {
-        "name": "JavaScript",
-        "category": "Programming",
-        "proficiency": 75,
-        "created_at": "2026-08-29T07:27:19.555Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 9,
-    "fields": {
-        "name": "HTML & CSS",
-        "category": "Frontend Programming",
-        "proficiency": 80,
-        "created_at": "2026-08-29T07:27:55.640Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 10,
-    "fields": {
-        "name": "Git & GitHub",
-        "category": "Development Tools",
-        "proficiency": 75,
-        "created_at": "2026-08-29T07:28:39.649Z"
-    }
-},
-{
-    "model": "portfolio.skill",
-    "pk": 11,
-    "fields": {
-        "name": "REST API",
-        "category": "Backend Development",
-        "proficiency": 70,
-        "created_at": "2026-08-29T07:28:59.444Z"
-    }
-},
-{
-    "model": "projects.project",
-    "pk": 1,
-    "fields": {
-        "title": "DEEPSECURE Suspicious Human Activity Recognition",
-        "slug": "deepsecure-suspicious-human-activity-recognition",
-        "short_description": "DeepSecure is an AI-powered video surveillance system that uses computer vision and deep learning techniques to recognize suspicious human activities from video streams and assist in identifying potentially abnormal behavior in real time.",
-        "full_description": "DeepSecure – Suspicious Human Activity Recognition is a computer vision and deep learning project designed to automatically analyze human activities in video footage and identify potentially suspicious or abnormal behavior.\r\n\r\nThe system processes video frames and extracts visual and temporal patterns associated with human actions. A trained deep learning model is used to classify observed activities and distinguish potentially suspicious activities from normal human behavior.\r\n\r\nThe project aims to reduce the dependency on continuous manual monitoring by providing automated activity analysis and generating alerts when potentially suspicious behavior is detected. It demonstrates the application of artificial intelligence, computer vision, and deep learning to real-world security and surveillance scenarios.\r\n\r\nThe system can be further extended with real-time camera integration, automated alerts, activity tracking, event logging, and a web-based monitoring dashboard.",
-        "problem_statement": "Traditional video surveillance requires continuous human monitoring, which can be time-consuming and may result in suspicious activities being missed. An automated system is needed to analyze surveillance footage and identify potentially suspicious human activities efficiently.",
-        "solution": "DeepSecure uses computer vision and deep learning to process video data and recognize human activities. The system analyzes the visual information and classifies detected activities, helping provide an automated alert-oriented surveillance solution.",
-        "dataset_info": "",
-        "ml_models": "",
-        "results": "",
-        "challenges": "",
-        "future_improvements": "",
-        "github_url": null,
-        "live_demo_url": null,
-        "project_image": "",
-        "is_published": true,
-        "created_at": "2026-08-29T07:37:56.789Z",
-        "updated_at": "2026-08-29T14:33:59.891Z",
-        "category": "AI/ML"
-    }
-}
 ]
