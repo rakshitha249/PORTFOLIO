@@ -36,28 +36,36 @@ if [ -f "portfolio_data.json" ]; then
   echo "Fixture file found: portfolio_data.json"
   echo "Checking production database..."
 
-  # Query database for Project counts
-  PROJECT_COUNT=$(python -c "
+  if python -c "
 import os, django, sys
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 try:
     django.setup()
     from projects.models import Project
-    print(Project.objects.count())
+    p = Project.objects.filter(slug='deepsecure-suspicious-human-activity-recognition').first()
+    if p is None:
+        sys.exit(1) # Project does not exist, run loaddata
+    elif not p.project_image:
+        sys.exit(1) # Project exists but has no image, run loaddata
+    else:
+        sys.exit(0) # Project exists and has image, skip loaddata
 except Exception as e:
     sys.stderr.write(f'Database check failed: {e}\n')
     sys.exit(2)
-")
-  RESULT=$?
+"; then
+    RESULT=0
+  else
+    RESULT=$?
+  fi
 
   if [ $RESULT -eq 0 ]; then
-    echo "Projects found: $PROJECT_COUNT"
-    if [ "$PROJECT_COUNT" -eq 0 ]; then
-      echo "Loading portfolio_data.json..."
-      if python manage.py loaddata portfolio_data.json; then
-        echo "loaddata completed successfully"
-        echo "Production data verification:"
-        VERIFY_OUTPUT=$(python -c "
+    echo "Database already contains populated DEEPSECURE project. Skipping loaddata."
+  elif [ $RESULT -eq 1 ]; then
+    echo "DEEPSECURE project missing or unpopulated. Loading portfolio_data.json..."
+    if python manage.py loaddata portfolio_data.json; then
+      echo "loaddata completed successfully"
+      echo "Production data verification:"
+      VERIFY_OUTPUT=$(python -c "
 import os, django, sys
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 try:
@@ -79,28 +87,35 @@ try:
     print(f'Experience: {experience}')
     print(f'Education: {education}')
     print(f'Certificates: {certificates}')
-    if profiles < 1 or skills < 10 or projects < 1:
-        sys.stderr.write('Verification failed: Expected records are missing!\n')
+    p = Project.objects.filter(slug='deepsecure-suspicious-human-activity-recognition').first()
+    if p is None:
+        sys.stderr.write('Verification failed: DEEPSECURE project is missing!\n')
+        sys.exit(3)
+    img = str(p.project_image or '')
+    techs_count = p.technologies.count()
+    metrics_count = p.metrics.count()
+    print(f'DEEPSECURE Image: {img}')
+    print(f'DEEPSECURE Technologies count: {techs_count}')
+    print(f'DEEPSECURE Metrics count: {metrics_count}')
+    if profiles < 1 or skills < 10 or projects < 1 or img != 'projects/panic_detection.webp' or techs_count != 11 or metrics_count != 4:
+        sys.stderr.write('Verification failed: Expected records or relations are missing/incorrect!\n')
         sys.exit(3)
 except Exception as e:
     sys.stderr.write(f'Verification query failed: {e}\n')
     sys.exit(2)
 ")
-        VERIFY_RESULT=$?
-        if [ $VERIFY_RESULT -eq 0 ]; then
-          echo "$VERIFY_OUTPUT"
-          echo "Verification completed successfully"
-        else
-          echo "$VERIFY_OUTPUT" >&2
-          echo "ERROR: Database verification failed after loaddata!" >&2
-          exit 1
-        fi
+      VERIFY_RESULT=$?
+      if [ $VERIFY_RESULT -eq 0 ]; then
+        echo "$VERIFY_OUTPUT"
+        echo "Verification completed successfully"
       else
-        echo "ERROR: loaddata failed" >&2
+        echo "$VERIFY_OUTPUT" >&2
+        echo "ERROR: Database verification failed after loaddata!" >&2
         exit 1
       fi
     else
-      echo "Database already contains projects. Skipping loaddata."
+      echo "ERROR: loaddata failed" >&2
+      exit 1
     fi
   else
     echo "ERROR: Failed to query database during startup. Aborting deployment." >&2
