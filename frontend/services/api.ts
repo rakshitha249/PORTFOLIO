@@ -9,7 +9,7 @@ export const fetchApi = async (endpoint: string) => {
         throw new Error(`API responded with status ${res.status}`);
     }
     const data = await res.json();
-    return data.results !== undefined ? data.results : data;
+    return (data.results !== undefined && Array.isArray(data.results)) ? data.results : data;
   } catch (error) {
     console.error(`Failed to fetch ${endpoint}:`, error);
     return null;
