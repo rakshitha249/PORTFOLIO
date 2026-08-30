@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# On Render, fail early if DATABASE_URL is not set
+if [ "$RENDER" = "true" ]; then
+  if [ -z "$DATABASE_URL" ]; then
+    echo "ERROR: DATABASE_URL environment variable is not set on Render!" >&2
+    exit 1
+  fi
+fi
+
 # Parse database host and port dynamically if DATABASE_URL is set
 if [ -n "$DATABASE_URL" ]; then
   DB_HOST=$(python -c "from urllib.parse import urlparse; url = urlparse('$DATABASE_URL'); print(url.hostname or '')")
@@ -18,6 +26,7 @@ if [ -n "$DB_HOST" ]; then
 else
   echo "Using local SQLite database (no network check required)"
 fi
+
 
 # Run migrations
 python manage.py migrate --no-input
