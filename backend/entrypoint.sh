@@ -42,13 +42,14 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 try:
     django.setup()
     from projects.models import Project
+    from education.models import Education
     p = Project.objects.filter(slug='deepsecure-suspicious-human-activity-recognition').first()
-    if p is None:
-        sys.exit(1) # Project does not exist, run loaddata
-    elif not p.project_image:
-        sys.exit(1) # Project exists but has no image, run loaddata
+    deepsecure_ok = p is not None and bool(p.project_image)
+    education_ok = Education.objects.count() >= 3
+    if not deepsecure_ok or not education_ok:
+        sys.exit(1) # Missing required data, run loaddata
     else:
-        sys.exit(0) # Project exists and has image, skip loaddata
+        sys.exit(0) # Everything populated, skip loaddata
 except Exception as e:
     sys.stderr.write(f'Database check failed: {e}\n')
     sys.exit(2)
@@ -59,9 +60,9 @@ except Exception as e:
   fi
 
   if [ $RESULT -eq 0 ]; then
-    echo "Database already contains populated DEEPSECURE project. Skipping loaddata."
+    echo "Database already contains populated DEEPSECURE project and education records. Skipping loaddata."
   elif [ $RESULT -eq 1 ]; then
-    echo "DEEPSECURE project missing or unpopulated. Loading portfolio_data.json..."
+    echo "DEEPSECURE project or education records missing/unpopulated. Loading portfolio_data.json..."
     if python manage.py loaddata portfolio_data.json; then
       echo "loaddata completed successfully"
       echo "Production data verification:"
