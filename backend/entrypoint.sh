@@ -36,7 +36,7 @@ if [ -f "portfolio_data.json" ]; then
   echo "Fixture file found: portfolio_data.json"
   echo "Checking production database..."
 
-  if python -c "
+  python -c "
 import os, django, sys
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 try:
@@ -53,11 +53,9 @@ try:
 except Exception as e:
     sys.stderr.write(f'Database check failed: {e}\n')
     sys.exit(2)
-"; then
-    RESULT=0
-  else
-    RESULT=$?
-  fi
+"
+  RESULT=$?
+
 
   if [ $RESULT -eq 0 ]; then
     echo "Database already contains populated DEEPSECURE project and education records. Skipping loaddata."
