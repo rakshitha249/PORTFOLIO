@@ -31,6 +31,37 @@ fi
 # Run migrations
 python manage.py migrate --no-input
 
+# Load portfolio fixture if no projects exist in the database and fixture is present
+if [ -f "portfolio_data.json" ]; then
+  if python -c "
+import os, django, sys
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+try:
+    django.setup()
+    from projects.models import Project
+    exists = Project.objects.exists()
+except Exception as e:
+    sys.stderr.write(f'Database check failed: {e}\n')
+    sys.exit(2)
+sys.exit(0 if exists else 1)
+"; then
+    RESULT=0
+  else
+    RESULT=$?
+  fi
+
+  if [ $RESULT -eq 0 ]; then
+    echo "Database already contains projects. Skipping loaddata."
+  elif [ $RESULT -eq 1 ]; then
+    echo "No projects found. Loading portfolio_data.json..."
+    python manage.py loaddata portfolio_data.json
+  else
+    echo "ERROR: Failed to query database. Aborting deployment to prevent data corruption." >&2
+    exit 1
+  fi
+fi
+
+
 # Collect static files
 python manage.py collectstatic --no-input --clear
 
