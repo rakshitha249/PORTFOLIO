@@ -20,7 +20,10 @@ export default async function EducationPage() {
                     <h3 className="font-bold text-2xl mb-2">{edu.degree}</h3>
                     <div className="text-[var(--primary)] font-semibold text-lg mb-2">{edu.institution}</div>
                     <div className="text-sm text-[var(--muted-foreground)] font-mono mb-6 bg-[var(--muted)] inline-block px-3 py-1 rounded-full">
-                        {edu.start_date} - {edu.end_date || 'Present'}
+                        {edu.degree === '10th Grade' || edu.start_date.substring(0, 4) === edu.end_date?.substring(0, 4)
+                          ? edu.end_date?.substring(0, 4)
+                          : `${edu.start_date.substring(0, 4)} – ${edu.end_date ? edu.end_date.substring(0, 4) : 'Present'}`
+                        }
                     </div>
                     {edu.description && <p className="text-[var(--muted-foreground)] leading-relaxed">{edu.description}</p>}
                 </div>

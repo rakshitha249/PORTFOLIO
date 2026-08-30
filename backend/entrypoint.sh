@@ -97,7 +97,7 @@ try:
     print(f'DEEPSECURE Image: {img}')
     print(f'DEEPSECURE Technologies count: {techs_count}')
     print(f'DEEPSECURE Metrics count: {metrics_count}')
-    if profiles < 1 or skills < 10 or projects < 1 or img != 'projects/panic_detection.webp' or techs_count != 11 or metrics_count != 4:
+    if profiles < 1 or skills < 10 or projects < 1 or education < 3 or img != 'projects/panic_detection.webp' or techs_count != 11 or metrics_count != 4:
         sys.stderr.write('Verification failed: Expected records or relations are missing/incorrect!\n')
         sys.exit(3)
 except Exception as e:

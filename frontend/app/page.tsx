@@ -140,7 +140,12 @@ export default async function Home() {
                             <div key={edu.id} className="p-6 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-sm">
                                 <h3 className="font-bold text-lg mb-1">{edu.degree}</h3>
                                 <div className="text-[var(--primary)] font-medium mb-2">{edu.institution}</div>
-                                <div className="text-sm text-[var(--muted-foreground)] font-mono mb-4">{edu.start_date} - {edu.end_date || 'Present'}</div>
+                                <div className="text-sm text-[var(--muted-foreground)] font-mono mb-4">
+                                    {edu.degree === '10th Grade' || edu.start_date.substring(0, 4) === edu.end_date?.substring(0, 4)
+                                      ? edu.end_date?.substring(0, 4)
+                                      : `${edu.start_date.substring(0, 4)} – ${edu.end_date ? edu.end_date.substring(0, 4) : 'Present'}`
+                                    }
+                                </div>
                                 {edu.description && <p className="text-sm text-[var(--muted-foreground)]">{edu.description}</p>}
                             </div>
                         ))}
