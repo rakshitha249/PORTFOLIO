@@ -22,7 +22,8 @@ env/
 !.vscode/settings.json
 
 # Generated static and media assets
-staticfiles/
-media/
+/staticfiles/
+/media/
 backend/staticfiles/
-backend/media/
+backend/media/*
+!backend/media/certificates/

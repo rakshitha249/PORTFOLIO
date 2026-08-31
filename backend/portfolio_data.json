@@ -298,5 +298,33 @@
         "description": "Percentage: 81.6%",
         "created_at": "2026-08-30T15:29:37.811Z"
     }
+},
+{
+    "model": "experience.experience",
+    "pk": 1,
+    "fields": {
+        "company": "QSpiders — A Unit of Test Yantra Software Solutions (India) Pvt. Ltd.",
+        "role": "Python Full Stack Developer Intern",
+        "start_date": "2026-01-27",
+        "end_date": "2026-05-21",
+        "is_current": false,
+        "description": "Completed a Python Full Stack internship focused on developing web applications using Python and Django, with frontend technologies including HTML, CSS, and JavaScript.",
+        "technologies_used": "Python, Django, HTML, CSS, JavaScript",
+        "created_at": "2026-08-30T16:11:32.218Z"
+    }
+},
+{
+    "model": "experience.experience",
+    "pk": 2,
+    "fields": {
+        "company": "Swifty9",
+        "role": "Machine Learning Intern",
+        "start_date": "2025-10-01",
+        "end_date": "2026-04-01",
+        "is_current": false,
+        "description": "Completed an Operations Analytics and Efficiency Optimization project, including data preprocessing, exploratory data analysis, feature engineering, machine learning for predictive analysis and operational forecasting, model evaluation, workflow automation, and dashboard development.",
+        "technologies_used": "Python, Pandas, NumPy, Scikit-learn, Matplotlib, Streamlit",
+        "created_at": "2026-08-30T16:11:32.222Z"
+    }
 }
 ]

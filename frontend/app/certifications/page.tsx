@@ -32,7 +32,7 @@ export default async function CertificationsPage() {
                         {cert.description && <p className="text-sm text-[var(--muted-foreground)] mb-4">{cert.description}</p>}
                         {cert.credential_url && (
                             <a href={cert.credential_url} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[var(--primary)] hover:underline inline-flex items-center">
-                                View Credential <ExternalLink className="ml-1 h-3 w-3" />
+                                View Certificate <ExternalLink className="ml-1 h-3 w-3" />
                             </a>
                         )}
                     </CardContent>
