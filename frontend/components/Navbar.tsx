@@ -24,7 +24,7 @@ export function Navbar() {
       <div className="container mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-8">
         <div className="flex items-center space-x-4">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="font-bold sm:inline-block hidden">Rakshitha Gowda</span>
+            <span className="font-bold sm:inline-block hidden">Rakshitha S S</span>
             <span className="font-bold sm:hidden">RG</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-medium">
