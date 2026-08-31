@@ -42,7 +42,7 @@ export default async function Home() {
                     <Link href="/projects">View Projects <ArrowRight className="ml-2 w-4 h-4" /></Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                    <a href="#contact">Contact Me</a>
+                    <Link href="/contact">Contact Me</Link>
                 </Button>
             </div>
         </div>
@@ -187,7 +187,9 @@ export default async function Home() {
                 Interested in AI, machine learning, or software engineering collaboration? I'm currently exploring new opportunities. Interactive AI Lab coming in Phase 4.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg">Contact Me</Button>
+                <Button size="lg" asChild>
+                    <Link href="/contact">Contact Me</Link>
+                </Button>
                 <Button variant="outline" size="lg">Explore AI Lab (Coming Soon)</Button>
             </div>
         </div>
