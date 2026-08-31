@@ -3,12 +3,13 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function Navbar() {
   const { setTheme, theme } = useTheme();
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = React.useState(false);
   
   const links = [
     { href: "/about", label: "About" },
@@ -44,11 +45,32 @@ export function Navbar() {
           <Button variant="outline" size="sm" className="hidden sm:inline-flex" asChild>
             <Link href="/resume">Resume</Link>
           </Button>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </div>
+      {isOpen && (
+        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)]">
+          <nav className="flex flex-col space-y-4 p-4 text-sm font-medium">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`transition-colors hover:text-[var(--foreground)] ${pathname?.startsWith(link.href) ? "text-[var(--foreground)] font-semibold" : "text-[var(--muted-foreground)]"}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-2 sm:hidden">
+              <Button variant="outline" size="sm" className="w-full justify-start" asChild>
+                <Link href="/resume" onClick={() => setIsOpen(false)}>Resume</Link>
+              </Button>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
