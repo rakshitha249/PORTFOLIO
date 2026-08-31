@@ -10,8 +10,8 @@ export function Footer() {
           </p>
         </div>
         <div className="flex items-center space-x-4 text-sm text-[var(--muted-foreground)]">
-          <a href="https://github.com/rakshitha-gowda" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
-          <a href="https://linkedin.com/in/rakshitha-gowda" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
+          <a href="https://github.com/rakshitha249" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+          <a href="https://www.linkedin.com/in/rakshitha-satish-576063249" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
           <a href="/about" className="hover:underline">About</a>
         </div>
       </div>
