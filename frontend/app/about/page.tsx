@@ -24,11 +24,11 @@ export default async function AboutPage() {
           <div className="grid md:grid-cols-2 gap-8">
               <div className="p-6 bg-[var(--secondary)] rounded-xl">
                   <h3 className="font-semibold text-lg mb-2">Professional Summary</h3>
-                  <p className="text-[var(--muted-foreground)]">Driven software engineer with a strong foundation in machine learning and data science.</p>
+                  <p className="text-[var(--muted-foreground)]">Computer Science graduate with hands-on experience in AI/ML, data preprocessing, feature engineering, and predictive analysis.</p>
               </div>
               <div className="p-6 bg-[var(--secondary)] rounded-xl">
                   <h3 className="font-semibold text-lg mb-2">Technical Focus</h3>
-                  <p className="text-[var(--muted-foreground)]">Specializing in AI architectures, backend systems, and modern web applications.</p>
+                  <p className="text-[var(--muted-foreground)]">Specializing in Python, PyTorch, YOLOv8, and building practical full-stack AI-powered applications with Django.</p>
               </div>
           </div>
         </div>
