@@ -24,9 +24,9 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-[var(--background)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--background)]/60">
       <div className="container mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-8">
         <div className="flex items-center space-x-4">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="font-bold sm:inline-block hidden">Rakshitha S S</span>
-            <span className="font-bold sm:hidden">RG</span>
+          <Link href="/" className="flex items-center space-x-2 shrink-0">
+            <span className="font-bold md:inline-block hidden">Rakshitha S S</span>
+            <span className="font-bold md:hidden">RG</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-medium">
             {links.map((link) => (
@@ -42,10 +42,10 @@ export function Navbar() {
             <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>
           </Button>
-          <Button variant="outline" size="sm" className="hidden sm:inline-flex" asChild>
+          <Button variant="outline" size="sm" className="shrink-0" asChild>
             <Link href="/resume">Resume</Link>
           </Button>
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <Button variant="ghost" size="icon" className="md:hidden shrink-0" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
@@ -63,11 +63,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 sm:hidden">
-              <Button variant="outline" size="sm" className="w-full justify-start" asChild>
-                <Link href="/resume" onClick={() => setIsOpen(false)}>Resume</Link>
-              </Button>
-            </div>
           </nav>
         </div>
       )}
