@@ -43,10 +43,13 @@ try:
     django.setup()
     from projects.models import Project
     from education.models import Education
+    from experience.models import Experience
     p = Project.objects.filter(slug='deepsecure-suspicious-human-activity-recognition').first()
     deepsecure_ok = p is not None and bool(p.project_image)
     education_ok = Education.objects.count() >= 3
-    if not deepsecure_ok or not education_ok:
+    experience_ok = Experience.objects.count() >= 2
+    projects_ok = Project.objects.count() >= 3
+    if not deepsecure_ok or not education_ok or not experience_ok or not projects_ok:
         sys.exit(1) # Missing required data, run loaddata
     else:
         sys.exit(0) # Everything populated, skip loaddata
@@ -96,7 +99,7 @@ try:
     print(f'DEEPSECURE Image: {img}')
     print(f'DEEPSECURE Technologies count: {techs_count}')
     print(f'DEEPSECURE Metrics count: {metrics_count}')
-    if profiles < 1 or skills < 10 or projects < 1 or education < 3 or img != 'projects/panic_detection.webp' or techs_count != 11 or metrics_count != 4:
+    if profiles < 1 or skills < 10 or projects < 3 or experience < 2 or education < 3 or img != 'projects/panic_detection.webp' or techs_count != 11 or metrics_count != 4:
         sys.stderr.write('Verification failed: Expected records or relations are missing/incorrect!\n')
         sys.exit(3)
 except Exception as e:
