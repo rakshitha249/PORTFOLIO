@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-of&pu=0nxr_p-gh9=eji9((oeg%^_%w6^-^x=mzzt303inou5d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
+allowed_hosts_env = os.environ.get('ALLOWED_HOSTS', '')
+ALLOWED_HOSTS = allowed_hosts_env.split(',') if allowed_hosts_env else ['*']
 
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
