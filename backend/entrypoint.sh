@@ -1,20 +1,14 @@
 #!/bin/bash
 
-# On Render, fail early if DATABASE_URL is not set
-if [ "$RENDER" = "true" ]; then
-  if [ -z "$DATABASE_URL" ]; then
-    echo "ERROR: DATABASE_URL environment variable is not set on Render!" >&2
-    exit 1
-  fi
-fi
+
 
 # Parse database host and port dynamically if DATABASE_URL is set
 if [ -n "$DATABASE_URL" ]; then
   DB_HOST=$(python -c "from urllib.parse import urlparse; url = urlparse('$DATABASE_URL'); print(url.hostname or '')")
   DB_PORT=$(python -c "from urllib.parse import urlparse; url = urlparse('$DATABASE_URL'); print(url.port or 5432)")
 else
-  DB_HOST="db"
-  DB_PORT=5432
+  DB_HOST=""
+  DB_PORT=""
 fi
 
 if [ -n "$DB_HOST" ]; then
